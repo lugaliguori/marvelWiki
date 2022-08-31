@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-3" *ngFor="let character of characterslist">
+        <div class="card">
+            <img [src]="character.thumbnail" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{character.name}}</h5>
+                <p class="card-text">{{character.description}}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Comics: {{character.comicsQty}}</li>
+                <li class="list-group-item">Series: {{character.seriesQty}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
