@@ -3,12 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import  { HttpClientModule} from '@angular/common/http';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { CharactersComponent } from './components/characters/characters.component';
 import { CharactersPageComponent } from './pages/characters-page/characters-page.component';
+import { CharacterComponent } from './pages/character/character.component';
+import { ComicListComponent } from './pages/comic-list/comic-list.component';
+import { ComicsComponent } from './components/comics/comics.component';
+import { ComicDetailsComponent } from './pages/comic-details/comic-details.component';
+import { CreatorsListComponent } from './pages/creators-list/creators-list.component';
 
 @NgModule({
   declarations: [
@@ -16,12 +22,18 @@ import { CharactersPageComponent } from './pages/characters-page/characters-page
     NavbarComponent,
     FooterComponent,
     CharactersComponent,
-    CharactersPageComponent
+    CharactersPageComponent,
+    CharacterComponent,
+    ComicListComponent,
+    ComicsComponent,
+    ComicDetailsComponent,
+    CreatorsListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    InfiniteScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]

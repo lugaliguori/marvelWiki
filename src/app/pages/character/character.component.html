@@ -1,0 +1,55 @@
+<div class="row mt-5" *ngIf="character">
+
+    <div class="col-4">
+        <img [src]="character.image" class="img-fluid" >
+
+    </div>
+
+    <div class="col-8 align">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{character.name}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{character.description}}</h6>
+            </div>
+        </div>
+        
+    </div>
+
+</div>
+
+<div class="row mt-5" *ngIf="comics.length > 0">
+    <h3>Comics in which {{character.name}} appears</h3>
+    <hr />
+    <div class="card-group">
+        <div class="col-3 m-4" *ngFor="let comic of comics">
+            <div class="card">
+                <img [src]="comic.image" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{comic.title}}</h5>
+                    <p class="card-text">Written by: <span *ngIf="comic.writer[0]">{{comic.writer[0].name}}</span> <span *ngIf="!comic.writer[0]">N/A</span></p>
+                    <p class="card-text">Cover by: <span *ngIf="comic.cover[0]">{{comic.cover[0].name}}</span> <span *ngIf="!comic.cover[0]">N/A</span></p>
+                    <p class="card-text">Price: {{comic.prices[0].price}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row mt-5" *ngIf="series.length > 0">
+    <h3>Series in which {{character.name}} appears</h3>
+    <hr />
+    <div class="card-group">
+        <div class="col-3 m-4" *ngFor="let serie of series">
+            <div class="card">
+                <img [src]="serie.image" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{serie.title}}</h5>
+                    <p class="card-text">{{serie.startYear}} - {{serie.endYear}}</p>
+                    <p class="card-text">Type: {{serie.type}}</p>
+                    <p class="card-text">Rating: {{serie.rating}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

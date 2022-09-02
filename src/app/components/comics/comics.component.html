@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="card mb-3 col-6" *ngFor="let comic of comics">
+        <div class="row g-0" (click)="goToComics(comic.id)">
+            <div class="col-md-4">
+                <img [src]="comic.image" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{comic.title}}</h5>
+                <p class="card-text">Cover by: {{comic.cover}}</p>
+                <p class="card-text">Price: {{comic.prices[0].price}}</p>
+                <p class="card-text">{{comic.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

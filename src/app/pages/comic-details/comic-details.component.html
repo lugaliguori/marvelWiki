@@ -1,0 +1,18 @@
+<div class="card mb-3" *ngIf="comicInfo">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img [src]="comicInfo.image" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{comicInfo.title}}</h5>
+          <p class="card-text">{{comicInfo.description}}</p>
+          <p class="card-text">Price: {{comicInfo.prices[0].price}}</p>
+          <h3 class="card-title" *ngIf="comicInfo.characters.items.length > 0">Characters</h3>
+          <a class="card-link" *ngFor="let characters of comicInfo.characters.items" (click)="goToCharacter(characters.resourceURI)">{{characters.name}}</a>
+          <h3 class="card-title" *ngIf="comicInfo.creator.length > 0">Creators</h3>
+          <a class="card-link" *ngFor="let creator of comicInfo.creator" (click)="goToCharacter(creator.resourceURI)">{{creator.name}}</a>
+        </div>
+      </div>
+    </div>
+  </div>

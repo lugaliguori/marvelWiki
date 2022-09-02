@@ -1,0 +1,23 @@
+<div class="container mt-2">
+    <form>
+      <div class="mb-3">
+        <input type="text" class="form-control" placeholder="Search comics" (input)="search($event)">
+      </div>
+    </form>
+  </div>
+
+  <div class="dropdown m-2">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+     Order By
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" (click)="orderBy(1)">Title: Ascending</a></li>
+      <li><a class="dropdown-item" (click)="orderBy(2)">Title: Descending</a></li>
+      <li><a class="dropdown-item" (click)="orderBy(3)">Price: Ascending</a></li>
+      <li><a class="dropdown-item" (click)="orderBy(4)">Price: Descending</a></li>
+    </ul>
+  </div>
+
+<div class="container" infinite-scroll [infiniteScrollDistance]="distance" [infiniteScrollThrottle]="2000" (scrolled)="onScroll()">
+    <app-comics [comics]="comicsList"></app-comics>
+</div>

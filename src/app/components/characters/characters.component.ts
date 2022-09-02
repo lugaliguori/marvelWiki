@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { MarvelApiServiceService } from 'src/app/services/marvel-api-service.service';
+import { Component, Input, OnInit } from '@angular/core';
 import { characters } from 'src/app/Models/characters';
-import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-characters',
@@ -10,26 +10,17 @@ import { map } from 'rxjs/operators';
 })
 export class CharactersComponent implements OnInit {
 
-  public characterslist: characters[] = [];
+  @Input() characterslist: characters[] = [];
 
-  constructor(private api: MarvelApiServiceService) {
+  constructor(private router: Router) {
 
    }
 
   ngOnInit(): void {
-    this.getCharacters();
   }
 
-   private async getCharacters(){
-    await this.api.getCharacters().then( (res) => {
-      res['data']['results'].map( (element: any) => {
-        let character = new characters(element)
-        character.description == null ? character.description = "No description Available" : character.description; 
-        this.characterslist.push(character);
-      } )
-    })
-
-    console.log(this.characterslist);
+  goToCharacter(id: number){
+    this.router.navigate(['/characters', id]);
   }
 
 }

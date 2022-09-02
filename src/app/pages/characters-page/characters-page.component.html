@@ -1,32 +1,45 @@
 <nav aria-label="Page navigation mt-5">
     <ul class="pagination justify-content-center">
-      <li class="page-item"><a class="page-link">A</a></li>
-      <li class="page-item"><a class="page-link">B</a></li>
-      <li class="page-item"><a class="page-link">C</a></li>
-      <li class="page-item"><a class="page-link">D</a></li>
-      <li class="page-item"><a class="page-link">E</a></li>
-      <li class="page-item"><a class="page-link">F</a></li>
-      <li class="page-item"><a class="page-link">G</a></li>
-      <li class="page-item"><a class="page-link">H</a></li>
-      <li class="page-item"><a class="page-link">I</a></li>
-      <li class="page-item"><a class="page-link">J</a></li>
-      <li class="page-item"><a class="page-link">K</a></li>
-      <li class="page-item"><a class="page-link">L</a></li>
-      <li class="page-item"><a class="page-link">M</a></li>
-      <li class="page-item"><a class="page-link">N</a></li>
-      <li class="page-item"><a class="page-link">O</a></li>
-      <li class="page-item"><a class="page-link">P</a></li>
-      <li class="page-item"><a class="page-link">Q</a></li>
-      <li class="page-item"><a class="page-link">R</a></li>
-      <li class="page-item"><a class="page-link">S</a></li>
-      <li class="page-item"><a class="page-link">T</a></li>
-      <li class="page-item"><a class="page-link">U</a></li>
-      <li class="page-item"><a class="page-link">V</a></li>
-      <li class="page-item"><a class="page-link">W</a></li>
-      <li class="page-item"><a class="page-link">X</a></li>
-      <li class="page-item"><a class="page-link">Z</a></li>
+      <li class="page-item"><a class="page-link"  (click)="searchByLetter('a')">A</a></li>
+      <li class="page-item"><a class="page-link" (click)="searchByLetter('b')">B</a></li>
+      <li class="page-item"><a class="page-link" (click)="searchByLetter('c')">C</a></li>
+      <li class="page-item"><a class="page-link" (click)="searchByLetter('d')">D</a></li>
+      <li class="page-item"><a class="page-link" (click)="searchByLetter('e')">E</a></li>
+      <li class="page-item"><a class="page-link" (click)="searchByLetter('f')">F</a></li>
+      <li class="page-item"><a class="page-link" (click)="searchByLetter('g')">G</a></li>
+      <li class="page-item"><a class="page-link" (click)="searchByLetter('h')">H</a></li>
+      <li class="page-item"><a class="page-link" (click)="searchByLetter('i')">I</a></li>
+      <li class="page-item"><a class="page-link" (click)="searchByLetter('j')">J</a></li>
+      <li class="page-item"><a class="page-link" (click)="searchByLetter('k')">K</a></li>
+      <li class="page-item"><a class="page-link" (click)="searchByLetter('l')">L</a></li>
+      <li class="page-item"><a class="page-link" (click)="searchByLetter('m')">M</a></li>
+      <li class="page-item"><a class="page-link" (click)="searchByLetter('n')">N</a></li>
+      <li class="page-item"><a class="page-link" (click)="searchByLetter('o')">O</a></li>
+      <li class="page-item"><a class="page-link" (click)="searchByLetter('p')">P</a></li>
+      <li class="page-item"><a class="page-link" (click)="searchByLetter('q')">Q</a></li>
+      <li class="page-item"><a class="page-link" (click)="searchByLetter('r')">R</a></li>
+      <li class="page-item"><a class="page-link" (click)="searchByLetter('s')">S</a></li>
+      <li class="page-item"><a class="page-link" (click)="searchByLetter('t')">T</a></li>
+      <li class="page-item"><a class="page-link" (click)="searchByLetter('u')">U</a></li>
+      <li class="page-item"><a class="page-link" (click)="searchByLetter('v')">V</a></li>
+      <li class="page-item"><a class="page-link" (click)="searchByLetter('w')">W</a></li>
+      <li class="page-item"><a class="page-link" (click)="searchByLetter('x')">X</a></li>
+      <li class="page-item"><a class="page-link" (click)="searchByLetter('z')">Z</a></li>
     </ul>
   </nav>
-<div class="container">
-    <app-characters></app-characters>
+<div class="container mt-2">
+  <form>
+    <div class="mb-3">
+      <input type="text" class="form-control" placeholder="Search by name" (input)="search($event)">
+    </div>
+  </form>
+</div>
+
+<div class="container mt-2" *ngIf="activeFilter">
+
+  <h3>Searching by {{filter}}</h3>
+
+</div>
+<div class="container" infinite-scroll [infiniteScrollDistance]="distance" [infiniteScrollThrottle]="2000" (scrolled)="onScroll()">
+    <app-characters [characterslist]="characterslist"></app-characters>
 </div>
