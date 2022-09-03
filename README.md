@@ -14,5 +14,5 @@ Tech stack
 
 Version de node 14.15.3
 Version de npm 6.14.9
-Verision de Angular 12
+Version de Angular 12
 
