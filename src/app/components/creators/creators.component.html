@@ -1,0 +1,14 @@
+<div class="row m-2">
+    <div class="col-3" *ngFor="let creator of creatorList" (click)="goToCreator(creator.id)">
+        <div class="card">
+            <img [src]="creator.image" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{creator.fullName}}</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Comics: {{creator.comics.returned}}</li>
+                <li class="list-group-item">Series: {{creator.series.returned}}</li>
+            </ul>
+        </div>
+    </div>
+</div>

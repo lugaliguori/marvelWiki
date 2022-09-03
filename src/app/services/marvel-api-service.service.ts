@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import {catchError, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { NumberValueAccessor } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -147,7 +148,7 @@ export class MarvelApiServiceService {
 
     async getCreatorsList(offset: number){
 
-      let url = this.baseUrl + `v1/public/creators?limit=30&apikey=${environment.publicKeyMarvel}`
+      let url = this.baseUrl + `v1/public/creators?limit=30&offset=${offset}&apikey=${environment.publicKeyMarvel}`
   
   
       let headers = new HttpHeaders({
@@ -160,5 +161,90 @@ export class MarvelApiServiceService {
       ).toPromise()
 
     }
+    
+    async searchCreator(offset: number, string : string){
+        let url = this.baseUrl + `v1/public/creators?limit=30&offset=${offset}&nameStartsWith=${string}&apikey=${environment.publicKeyMarvel}`
+    
+    
+        let headers = new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        });
+
+        return this.http.get(url, {headers: headers}).pipe( 
+            map((data): any =>  data)
+        ).toPromise()
+    }
+
+     async getCreator(id: number){
+      let url = this.baseUrl + `v1/public/creators/${id}?apikey=${environment.publicKeyMarvel}`
+    
+    
+      let headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      });
+
+      return this.http.get(url, {headers: headers}).pipe( 
+          map((data): any =>  data)
+      ).toPromise()
+     }
+
+     async getCreatorsComics(id: number){
+      let url = this.baseUrl + `v1/public/creators/${id}/comics?limit=10&apikey=${environment.publicKeyMarvel}`
+    
+    
+      let headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      });
+
+      return this.http.get(url, {headers: headers}).pipe( 
+          map((data): any =>  data)
+      ).toPromise()
+     }
+
+     async getCreatorsSeries(id: number){
+      let url = this.baseUrl + `v1/public/creators/${id}/series?limit=10&apikey=${environment.publicKeyMarvel}`
+    
+    
+      let headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      });
+
+      return this.http.get(url, {headers: headers}).pipe( 
+          map((data): any =>  data)
+      ).toPromise()
+     }
+
+     async getSeriesList(offset: number){
+        let url = this.baseUrl + `v1/public/series?limit=30&offset=${offset}&apikey=${environment.publicKeyMarvel}`
+    
+    
+        let headers = new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        });
+
+        return this.http.get(url, {headers: headers}).pipe( 
+            map((data): any =>  data)
+        ).toPromise()
+
+     }
+
+     async searchSeriesList(string: string){
+        let url = this.baseUrl + `v1/public/series?limit=30&titleStartsWith=${string}&apikey=${environment.publicKeyMarvel}`
+      
+      
+          let headers = new HttpHeaders({
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          });
+
+          return this.http.get(url, {headers: headers}).pipe( 
+              map((data): any =>  data)
+          ).toPromise()
+     }
 
 }

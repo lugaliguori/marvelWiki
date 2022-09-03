@@ -1,1 +1,11 @@
-<p>creators-list works!</p>
+<div class="container mt-2">
+    <form>
+      <div class="mb-3">
+        <input type="text" class="form-control" placeholder="Search comics" (input)="search($event)">
+      </div>
+    </form>
+</div>
+
+<div class="container m-2" infinite-scroll [infiniteScrollDistance]="distance" [infiniteScrollThrottle]="2000" (scrolled)="onScroll()">
+    <app-creators [creatorList]="creatorsList" ></app-creators>
+</div>

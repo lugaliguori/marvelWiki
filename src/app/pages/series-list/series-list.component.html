@@ -1,0 +1,31 @@
+<div class="container mt-2">
+    <form>
+      <div class="mb-3">
+        <input type="text" class="form-control" placeholder="Search comics" (input)="search($event)">
+      </div>
+    </form>
+</div>
+
+<div class="row">
+    <div class="card mb-3 col-6" *ngFor="let serie of seriesList">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img [src]="serie.image" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{serie.title}}</h5>
+                    <p class="card-text">{{serie.description}}</p>
+                    <p class="card-text">Run: {{serie.startYear}} -{{serie.endYear}} </p>
+                    <p class="card-text" *ngIf="serie.type">Type: {{serie.type}}</p>
+                    <p class="card-text" *ngIf="!serie.type">Type: N/A</p>
+                    <p class="card-text" *ngIf="serie.rating">Rating: {{serie.rating}}</p>
+                    <p class="card-text" *ngIf="!serie.rating">Rating: N/A</p>
+                    <p class="card-text" *ngIf="serie.writer[0]">Written By: {{serie.writer[0].name}}</p>
+                    <p class="card-text" *ngIf="!serie.writer[0]">Written By: N/A</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

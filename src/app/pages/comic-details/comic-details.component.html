@@ -11,7 +11,7 @@
           <h3 class="card-title" *ngIf="comicInfo.characters.items.length > 0">Characters</h3>
           <a class="card-link" *ngFor="let characters of comicInfo.characters.items" (click)="goToCharacter(characters.resourceURI)">{{characters.name}}</a>
           <h3 class="card-title" *ngIf="comicInfo.creator.length > 0">Creators</h3>
-          <a class="card-link" *ngFor="let creator of comicInfo.creator" (click)="goToCharacter(creator.resourceURI)">{{creator.name}}</a>
+          <a class="card-link" *ngFor="let creator of comicInfo.creator" (click)="goToCreators(creator.resourceURI)">{{creator.name}}</a>
         </div>
       </div>
     </div>

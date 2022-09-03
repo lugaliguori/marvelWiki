@@ -15,6 +15,9 @@ import { ComicListComponent } from './pages/comic-list/comic-list.component';
 import { ComicsComponent } from './components/comics/comics.component';
 import { ComicDetailsComponent } from './pages/comic-details/comic-details.component';
 import { CreatorsListComponent } from './pages/creators-list/creators-list.component';
+import { CreatorsComponent } from './components/creators/creators.component';
+import { CreatorDetailComponent } from './pages/creator-detail/creator-detail.component';
+import { SeriesListComponent } from './pages/series-list/series-list.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { CreatorsListComponent } from './pages/creators-list/creators-list.compo
     ComicListComponent,
     ComicsComponent,
     ComicDetailsComponent,
-    CreatorsListComponent
+    CreatorsListComponent,
+    CreatorsComponent,
+    CreatorDetailComponent,
+    SeriesListComponent
   ],
   imports: [
     BrowserModule,

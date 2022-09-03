@@ -16,7 +16,7 @@ export class CharacterComponent implements OnInit {
 
   public series: any[] = [];
 
-  constructor(private route: ActivatedRoute, private api: MarvelApiServiceService) {
+  constructor(private route: ActivatedRoute, private api: MarvelApiServiceService, private router: Router) {
 
    }
 
@@ -39,6 +39,7 @@ export class CharacterComponent implements OnInit {
 
   async getCharactersComics(id: number){
     this.api.getCharacterComics(id).then( res => {
+      console.log(res);
       this.comics = res['data']['results'].map((element: any) => {
           let comic = element;
           comic.image = `${element['images'][0]['path']}.${element['images'][0]['extension']}`
@@ -59,6 +60,10 @@ export class CharacterComponent implements OnInit {
           return serie;
         })
       })
+  }
+
+  async goToComic(id: number){
+    this.router.navigate(['comics/', id]);
   }
 
 }

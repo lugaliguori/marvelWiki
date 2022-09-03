@@ -1,0 +1,56 @@
+<div class="card mb-3" >
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img [src]="creator.image" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{creator.fullName}}</h5>
+          <p class="card-text">First Name: {{creator.firstName}}</p>
+          <p class="card-text" *ngIf="creator.middleName">Middle Name: {{creator.middleName}}</p>
+          <p class="card-text" *ngIf="!creator.middleName">Middle Name: Not Found</p>
+          <p class="card-text" *ngIf="creator.lastName">Last Name: {{creator.lastName}}</p>
+          <p class="card-text" *ngIf="!creator.lastName">Last Name: Not Found</p>
+          <!-- <a href="#" class="card-link">All comics</a> -->
+          
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="row mt-5" *ngIf="comics.length > 0">
+  <h3>Comics in which {{creator.fullName}} worked</h3>
+  <hr />
+  <div class="card-group">
+      <div class="col-3 m-4" *ngFor="let comic of comics" (click)="goToComic(comic.id)">
+          <div class="card">
+              <img [src]="comic.image" class="card-img-top" alt="...">
+              <div class="card-body">
+                  <h5 class="card-title">{{comic.title}}</h5>
+                  <p class="card-text">Role {{comic.role[0].role}}</p>
+                  <p class="card-text">Price: {{comic.prices[0].price}}</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="row mt-5" *ngIf="series.length > 0">
+  <h3>Series in which {{creator.fullName}} worked</h3>
+  <hr />
+  <div class="card-group">
+      <div class="col-3 m-4" *ngFor="let serie of series">
+          <div class="card">
+              <img [src]="serie.image" class="card-img-top" alt="...">
+              <div class="card-body">
+                  <h5 class="card-title">{{serie.title}}</h5>
+                  <p class="card-text">{{serie.startYear}} - {{serie.endYear}}</p>
+                  <p class="card-text" *ngIf="serie.type">Type: {{serie.type}}</p>
+                  <p class="card-text" *ngIf="!serie.type">Type: N/A</p>
+                  <p class="card-text" *ngIf="serie.rating">Rating: {{serie.rating}}</p>
+                  <p class="card-text" *ngIf="!serie.rating">Rating: N/A</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

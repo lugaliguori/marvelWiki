@@ -36,6 +36,11 @@ export class ComicDetailsComponent implements OnInit {
   async goToCharacter(url: string){
     let id = url.split('/');
     this.router.navigate(['characters/', id[id.length -1]])
+  }
+  
+  async goToCreators(url: string){
+    let id = url.split('/');
+    this.router.navigate(['creators/', id[id.length -1]])
   }  
     
 

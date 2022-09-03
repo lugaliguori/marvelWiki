@@ -21,7 +21,7 @@
     <h3>Comics in which {{character.name}} appears</h3>
     <hr />
     <div class="card-group">
-        <div class="col-3 m-4" *ngFor="let comic of comics">
+        <div class="col-3 m-4" *ngFor="let comic of comics" (click)="goToComic(comic.id)">
             <div class="card">
                 <img [src]="comic.image" class="card-img-top" alt="...">
                 <div class="card-body">
