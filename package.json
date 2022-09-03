@@ -1,6 +1,6 @@
 {
-  "name": "turpial-testapp",
-  "version": "0.0.0",
+  "name": "tupial-testapp",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start" : "node server.js",
