@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "infocent-testapp": {
+    "turpial-testapp": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/infocent-testapp",
+            "outputPath": "dist/turpial-testapp",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -71,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "infocent-testapp:build:production"
+              "browserTarget": "turpial-testapp:build:production"
             },
             "development": {
-              "browserTarget": "infocent-testapp:build:development"
+              "browserTarget": "turpial-testapp:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "infocent-testapp:build"
+            "browserTarget": "turpial-testapp:build"
           }
         },
         "test": {
@@ -105,5 +105,5 @@
       }
     }
   },
-  "defaultProject": "infocent-testapp"
+  "defaultProject": "turpial-testapp"
 }

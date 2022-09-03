@@ -1,6 +1,6 @@
-# InfocentTestapp
+# turpialTestapp
 
-Proyecto realizado Por Luis Liguori para Infocent
+Proyecto realizado Por Luis Liguori para turpial
 
 ## Levantar el proyecto
 

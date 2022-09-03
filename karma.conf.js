@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/infocent-testapp'),
+      dir: require('path').join(__dirname, './coverage/turpial-testapp'),
       subdir: '.',
       reporters: [
         { type: 'html' },
